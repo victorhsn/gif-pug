@@ -1,0 +1,20 @@
+{
+  "name": "gifs-pug",
+  "version": "1.0.0",
+  "description": "Gifs Pug!",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start"
+  },
+  "keywords": ["gif","pug","giphy"],
+  "author": "Victor Hugo Souza Nunes <hugo.hsn@gmail.com> (https://github.com/victorhsn)",
+  "license": "MIT",
+  "devDependencies": {
+    "react-scripts": "^1.1.4"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  }
+}
