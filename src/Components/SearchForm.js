@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class SearchForm extends Component {
 
@@ -17,20 +17,20 @@ class SearchForm extends Component {
   }
 
   render() {
-    return(
+    return (
       <form className='search-form' onSubmit={this.handleSubmit}>
         <label className='is-hidden' htmlFor='search'>Search</label>
-        
+
         <input type='search'
-                onChange={this.onSearchChange}
-                name='search'
-                ref={(input) => this.query = input}
-                placeholder='Type a word!'/>
-        
+          onChange={this.onSearchChange}
+          name='search'
+          ref={(input) => this.query = input}
+          placeholder='Type a word!' />
+
         <button type='submit'
-                id='submit'
-                className='search-button'>
-                <i className='material-icons icn-search'>search</i></button>
+          id='submit'
+          className='search-button'>
+          <i className='material-icons icn-search'>search</i></button>
       </form>
     );
   }
