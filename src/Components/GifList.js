@@ -4,14 +4,15 @@ import GifNotFound from './GifNotFound';
 import { withPugData } from './withPugData'
 
 const GifList = ({ pugsData }) => {
+  const { data } = pugsData.pugs
   if (pugsData && pugsData.loading) return <p>Loading...</p>;
 
   return (
     <div>
       {pugsData.loading && <p>Loading...</p>}
-      {pugsData.pugs.data === 0 && <GifNotFound />}
+      {data === 0 && <GifNotFound />}
       <ul className="gif-list">
-        {pugsData.pugs.data.map(gif => (
+        {data.map(gif => (
           <Gif
             key={gif.id}
             url={gif.images.fixed_height.url}
@@ -24,4 +25,4 @@ const GifList = ({ pugsData }) => {
   );
 };
 
-export default withPugData(GifList, 'pug');
+export default withPugData('pug')(GifList);
