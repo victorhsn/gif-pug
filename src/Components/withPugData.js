@@ -10,7 +10,7 @@ export function withPugData(query) {
             }
 
             componentDidMount = async () => {
-                const response = await fetch(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=dc6zaTOxFJmzC`)
+                const response = await fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=dc6zaTOxFJmzC`)
                 const pugs = await response.json()
                 this.setState({ pugs, loading: false })
             }
