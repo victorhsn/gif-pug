@@ -1,29 +1,27 @@
 import React from 'react';
 import Gif from './Gif';
 import GifNotFound from './GifNotFound';
+import { withPugData } from './withPugData'
 
-const GifList = props => {
+const GifList = ({ pugsData }) => {
+  if (pugsData && pugsData.loading) return <p>Loading...</p>;
 
-  const result = props.data;
-  let gifs;
-  
-  if(result.length > 0) {
-    gifs = result.map(gif => 
-      <Gif 
-        key={gif.id}
-        url={gif.images.fixed_height.url}
-        title={gif.title}
-      />
-    );
-  } else {
-    gifs = <GifNotFound/>
-  }
-  
-  return(
-    <ul className="gif-list">
-      {gifs}
-    </ul>
+  return (
+    <div>
+      {pugsData.loading && <p>Loading...</p>}
+      {pugsData.pugs.data === 0 && <GifNotFound />}
+      <ul className="gif-list">
+        {pugsData.pugs.data.map(gif => (
+          <Gif
+            key={gif.id}
+            url={gif.images.fixed_height.url}
+            title={gif.title}
+          />
+        )
+        )}
+      </ul>
+    </div>
   );
 };
 
-export default GifList;
+export default withPugData(GifList, 'pug');
